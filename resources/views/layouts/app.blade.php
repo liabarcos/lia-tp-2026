@@ -11,6 +11,20 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        <!-- Configuración de WebSockets en tiempo de ejecución -->
+        @php
+            $wsPort = request()->getScheme() === 'https' ? 443 : (int) config('reverb.servers.reverb.port', 8080);
+            $reverbKey = config('reverb.apps.apps.0.key');
+        @endphp
+        <script>
+            window.APP_REVERB = {
+                key: @json($reverbKey),
+                host: @json(request()->getHost()),
+                port: {{ $wsPort }},
+                scheme: @json(request()->getScheme()),
+            };
+        </script>
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>

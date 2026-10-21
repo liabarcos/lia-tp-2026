@@ -9,7 +9,7 @@ echo.
 
 start "Sala de Chat - Servidor web" cmd /k "php artisan serve --host=127.0.0.1 --port=8000"
 start "Sala de Chat - WebSockets" cmd /k "php artisan reverb:start"
-start "Sala de Chat - Proxy" cmd /k "node demo-proxy.js"
+start "Sala de Chat - Proxy" cmd /k "node demo-proxy.cjs"
 
 timeout /t 3 /nobreak >nul
 
