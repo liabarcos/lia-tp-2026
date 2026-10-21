@@ -15,48 +15,19 @@
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6">
-                    <div class="flex items-center space-x-6 mb-6">
-                        <img src="{{ $user->photo_url }}" alt="{{ $user->name }}" class="w-24 h-24 rounded-full object-cover">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-16 h-16 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold">
+                            {{ strtoupper(substr($user->name, 0, 1)) }}
+                        </div>
                         <div>
                             <h1 class="text-2xl font-bold text-gray-800">{{ $user->name }}</h1>
                             <p class="text-gray-500">{{ $user->email }}</p>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-500 uppercase">Teléfono</h3>
-                            @if ($user->phone)
-                                <a href="{{ $user->whatsapp_url }}" target="_blank" class="text-green-600 hover:underline flex items-center space-x-2">
-                                    <span>{{ $user->phone }}</span>
-                                    <span class="text-xs">(WhatsApp)</span>
-                                </a>
-                            @else
-                                <p class="text-gray-400">No especificado</p>
-                            @endif
-                        </div>
-
-                        <div>
-                            <h3 class="text-sm font-semibold text-gray-500 uppercase">Red Profesional</h3>
-                            @if ($user->professional_url)
-                                <a href="{{ $user->professional_url }}" target="_blank" class="text-blue-600 hover:underline">
-                                    {{ $user->professional_url }}
-                                </a>
-                            @else
-                                <p class="text-gray-400">No especificado</p>
-                            @endif
-                        </div>
-                    </div>
-
                     <a href="{{ route('profile.edit') }}" class="inline-block bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition">
                         {{ __('Editar Perfil') }}
                     </a>
-
-                    @if ($user->is_admin)
-                        <a href="{{ route('admin.users.index') }}" class="inline-block ml-2 bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition">
-                            {{ __('Ver Usuarios') }}
-                        </a>
-                    @endif
                 </div>
             </div>
         </div>

@@ -35,8 +35,4 @@ return [
         ],
     ],
 
-    'whatsapp' => [
-        'prefix' => env('WHATSAPP_COUNTRY_PREFIX', '54'),
-    ],
-
 ];

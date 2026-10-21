@@ -12,15 +12,13 @@
                     <p class="mb-4">{{ __("¡Bienvenido, ") }}{{ Auth::user()->name }}!</p>
 
                     <div class="flex items-center space-x-4">
-                        <a href="{{ route('profile.show') }}" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition">
-                            {{ __('Ver Mi Perfil') }}
+                        <a href="{{ route('chat.index') }}" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition">
+                            {{ __('Entrar a la Sala de Chat') }}
                         </a>
 
-                        @if (Auth::user()->is_admin)
-                            <a href="{{ route('admin.users.index') }}" class="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition">
-                                {{ __('Ver Usuarios') }}
-                            </a>
-                        @endif
+                        <a href="{{ route('profile.show') }}" class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50 transition">
+                            {{ __('Ver Mi Perfil') }}
+                        </a>
                     </div>
                 </div>
             </div>

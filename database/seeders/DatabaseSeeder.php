@@ -12,20 +12,18 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-        User::create([
-            'name' => 'Admin Docente',
-            'email' => 'admin@lia.com',
-            'password' => bcrypt('password'),
-            'is_admin' => true,
-            'email_verified_at' => now(),
-        ]);
-
+        // Usuarios de prueba para la demo de la sala de chat
         User::create([
             'name' => 'Lia Alumno',
             'email' => 'lia@lia.com',
             'password' => bcrypt('password'),
-            'phone' => '1155551234',
-            'professional_url' => 'https://linkedin.com/in/lia',
+            'email_verified_at' => now(),
+        ]);
+
+        User::create([
+            'name' => 'Compañero Demo',
+            'email' => 'demo@lia.com',
+            'password' => bcrypt('password'),
             'email_verified_at' => now(),
         ]);
     }
