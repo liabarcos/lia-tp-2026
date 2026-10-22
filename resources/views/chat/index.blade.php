@@ -7,23 +7,23 @@
 
     <div class="py-6">
         <div class="max-w-3xl mx-auto px-4 sm:px-0">
-            <div x-data="chatRoom()" class="bg-white shadow rounded-lg flex flex-col overflow-hidden" style="height: calc(100vh - 11rem);">
+            <div x-data="chatRoom()" class="bg-white/5 backdrop-blur-md border border-white/20 rounded-xl flex flex-col overflow-hidden shadow-[0_0_60px_rgba(168,85,247,0.25)]" style="height: calc(100vh - 11rem);">
 
                 <!-- Encabezado de la sala -->
-                <div class="flex items-center justify-between px-4 py-3 border-b border-gray-100 bg-gray-50">
+                <div class="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/5">
                     <div class="flex items-center space-x-2">
-                        <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
-                        <span class="text-sm text-gray-600">{{ __('En vivo · mensajes en tiempo real') }}</span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse shadow-[0_0_10px_#4ade80]"></span>
+                        <span class="text-sm text-slate-200">{{ __('En vivo · mensajes en tiempo real') }}</span>
                     </div>
-                    <span class="text-xs text-gray-500">
-                        {{ __('Conectado como') }} <span class="font-semibold text-purple-700">{{ Auth::user()->name }}</span>
+                    <span class="text-xs text-slate-400">
+                        {{ __('Conectado como') }} <span class="font-semibold text-fuchsia-300">{{ Auth::user()->name }}</span>
                     </span>
                 </div>
 
                 <!-- Lista de mensajes -->
-                <div x-ref="list" class="flex-1 overflow-y-auto p-4 space-y-3 bg-white">
+                <div x-ref="list" class="flex-1 overflow-y-auto p-4 space-y-3">
                     <template x-if="messages.length === 0">
-                        <div class="text-center text-gray-400 py-10 text-sm">
+                        <div class="text-center text-slate-300/80 py-10 text-sm">
                             {{ __('Todavía no hay mensajes. ¡Escribí el primero!') }}
                         </div>
                     </template>
@@ -32,14 +32,14 @@
                         <div class="flex" :class="m.user_id === authId ? 'justify-end' : 'justify-start'">
                             <div class="max-w-[75%]">
                                 <div class="text-xs mb-1 px-1 flex items-center space-x-2"
-                                     :class="m.user_id === authId ? 'justify-end text-purple-600' : 'text-gray-500'">
+                                     :class="m.user_id === authId ? 'justify-end text-fuchsia-300' : 'text-slate-300'">
                                     <span class="font-semibold" x-text="m.user_id === authId ? '{{ __('Tú') }}' : m.name"></span>
-                                    <span x-text="fmt(m.created_at)"></span>
+                                    <span class="text-slate-400" x-text="fmt(m.created_at)"></span>
                                 </div>
                                 <div class="px-4 py-2 rounded-2xl whitespace-pre-wrap break-words text-sm leading-relaxed"
                                      :class="m.user_id === authId
-                                        ? 'bg-purple-600 text-white rounded-br-md'
-                                        : 'bg-gray-200 text-gray-800 rounded-bl-md'"
+                                        ? 'bg-gradient-to-br from-fuchsia-500 via-purple-500 to-violet-600 text-white rounded-br-md shadow-lg shadow-fuchsia-500/30'
+                                        : 'bg-white text-gray-900 rounded-bl-md shadow-lg shadow-black/30 ring-1 ring-white/60'"
                                      x-text="m.content"></div>
                             </div>
                         </div>
@@ -47,19 +47,19 @@
                 </div>
 
                 <!-- Error -->
-                <div x-show="error" x-cloak x-text="error" class="px-4 py-1 text-xs text-red-500 bg-red-50"></div>
+                <div x-show="error" x-cloak x-text="error" class="px-4 py-1 text-xs text-red-300 bg-red-500/15 border-t border-red-400/20"></div>
 
                 <!-- Formulario de envío -->
-                <form x-on:submit.prevent="send" class="border-t border-gray-100 p-3 flex items-center space-x-2 bg-gray-50">
+                <form x-on:submit.prevent="send" class="border-t border-white/10 p-3 flex items-center space-x-2 bg-white/5">
                     <input type="text"
                            x-model="draft"
                            maxlength="1000"
                            autocomplete="off"
                            placeholder="{{ __('Escribí un mensaje…') }}"
-                           class="flex-1 rounded-full border-gray-300 text-sm focus:border-purple-500 focus:ring-purple-500" />
+                           class="flex-1 rounded-full bg-white/10 border border-white/25 text-white placeholder-slate-300 text-sm focus:border-fuchsia-400 focus:ring-fuchsia-400" />
                     <button type="submit"
                             :disabled="sending || !draft.trim()"
-                            class="bg-purple-600 text-white rounded-full px-5 py-2 text-sm font-medium hover:bg-purple-700 disabled:opacity-40 transition">
+                            class="bg-gradient-to-r from-fuchsia-500 to-violet-600 text-white rounded-full px-5 py-2 text-sm font-semibold hover:from-fuchsia-400 hover:to-violet-500 disabled:opacity-40 shadow-lg shadow-violet-600/40 transition">
                         {{ __('Enviar') }}
                     </button>
                 </form>

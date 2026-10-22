@@ -1,3 +1,105 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ===== 🌌 FONDO DE GALAXIA ===== */
+:root {
+    --galaxy:
+        radial-gradient(ellipse at 18% -5%, rgba(88, 28, 135, .85) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 105%, rgba(127, 29, 87, .7) 0%, transparent 55%),
+        radial-gradient(ellipse at 55% 45%, rgba(30, 27, 75, .6) 0%, transparent 60%),
+        linear-gradient(180deg, #0b0620 0%, #070417 55%, #04020e 100%);
+}
+
+body,
+body.bg-gray-100 {
+    background: var(--galaxy);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Capa de estrellas */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, .95), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, .7), transparent),
+        radial-gradient(1.5px 1.5px at 250px 40px, rgba(255, 255, 255, .95), transparent),
+        radial-gradient(1px 1px at 60px 160px, rgba(255, 255, 255, .6), transparent),
+        radial-gradient(2px 2px at 320px 210px, rgba(196, 181, 253, .95), transparent),
+        radial-gradient(1px 1px at 200px 130px, rgba(255, 255, 255, .8), transparent),
+        radial-gradient(1.5px 1.5px at 380px 95px, rgba(255, 255, 255, .75), transparent),
+        radial-gradient(1px 1px at 300px 290px, rgba(255, 255, 255, .65), transparent),
+        radial-gradient(1px 1px at 95px 250px, rgba(255, 255, 255, .55), transparent);
+    background-size: 420px 330px;
+}
+
+/* Nebulosas de color */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(540px 380px at 12% 16%, rgba(168, 85, 247, .32), transparent 65%),
+        radial-gradient(500px 340px at 88% 10%, rgba(37, 99, 235, .28), transparent 65%),
+        radial-gradient(660px 480px at 78% 90%, rgba(219, 39, 119, .24), transparent 65%),
+        radial-gradient(420px 320px at 40% 65%, rgba(14, 165, 233, .14), transparent 70%);
+}
+
+/* El contenido siempre queda encima de las estrellas */
+nav,
+header,
+main {
+    position: relative;
+    z-index: 10;
+}
+
+/* Contenedores transparentes para ver la galaxia */
+.min-h-screen.bg-gray-100 {
+    background: transparent;
+}
+
+/* ===== Nav y encabezado oscuros ===== */
+nav.bg-white {
+    background: rgba(10, 5, 28, .78) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-color: rgba(255, 255, 255, .08) !important;
+}
+
+nav.bg-white .text-gray-500,
+nav.bg-white .text-gray-600,
+nav.bg-white .text-gray-700,
+nav.bg-white .text-gray-800,
+nav.bg-white .text-gray-900 {
+    color: rgba(226, 232, 240, .92) !important;
+}
+
+nav.bg-white .text-purple-600 {
+    color: #e9d5ff !important;
+}
+
+/* El panel desplegable (blanco) mantiene texto oscuro */
+nav.bg-white .bg-white .text-gray-500,
+nav.bg-white .bg-white .text-gray-600,
+nav.bg-white .bg-white .text-gray-800,
+nav.bg-white .bg-white .text-gray-900 {
+    color: #374151 !important;
+}
+
+header.bg-white.shadow {
+    background: rgba(10, 5, 28, .55) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: none !important;
+}
+
+header.bg-white.shadow h2 {
+    color: #f1f5f9 !important;
+}
