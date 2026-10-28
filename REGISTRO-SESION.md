@@ -11,7 +11,7 @@
 
 | Link | Uso |
 |---|---|
-| **https://offices-monitored-youth-encourages.trycloudflare.com** | **Sala de chat EN VIVO** (link actual — si la demo se reinicia, cambia) |
+| **https://cia-forum-helmet-tour.trycloudflare.com** | **Sala de chat EN VIVO** (link actual — si la demo se reinicia, cambia) |
 | https://github.com/liabarcos/lia-tp-2026 | Código en GitHub |
 | http://localhost:8000 | Sala en local (solo en la PC del proyecto) |
 
