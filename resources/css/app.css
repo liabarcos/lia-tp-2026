@@ -53,8 +53,18 @@ body::after {
 }
 
 /* El contenido siempre queda encima de las estrellas */
-nav,
-header,
+/* Jerarquía de capas: nav (50) > header (40) > main (10)
+   Así el menú desplegable del perfil/logout queda por encima del contenido */
+nav {
+    position: relative;
+    z-index: 50;
+}
+
+header {
+    position: relative;
+    z-index: 40;
+}
+
 main {
     position: relative;
     z-index: 10;
