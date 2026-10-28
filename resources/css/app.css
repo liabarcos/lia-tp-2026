@@ -95,11 +95,14 @@ nav.bg-white .text-purple-600 {
     color: #e9d5ff !important;
 }
 
-/* El panel desplegable (blanco) mantiene texto oscuro */
+/* El panel desplegable y el botón de usuario (fondos blancos) mantienen texto oscuro */
+nav.bg-white .bg-white a,
+nav.bg-white .bg-white span,
 nav.bg-white .bg-white .text-gray-500,
 nav.bg-white .bg-white .text-gray-600,
+nav.bg-white .bg-white .text-gray-700,
 nav.bg-white .bg-white .text-gray-800,
-nav.bg-white .bg-white .text-gray-900 {
+nav.bg-white button.bg-white {
     color: #374151 !important;
 }
 
